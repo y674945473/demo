@@ -1,0 +1,18 @@
+server:
+  port: 18001
+
+spring:
+  application:
+    name: hotel
+  datasource:
+    url: jdbc:mysql://118.190.97.96:3306/test?useSSL=false
+    username: 
+    password: 
+    driverClassName: com.mysql.jdbc.Driver
+  thymeleaf:
+    prefix: classpath:/templates
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
