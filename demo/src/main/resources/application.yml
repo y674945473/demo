@@ -16,3 +16,20 @@ spring:
       charset: UTF-8
       force: true
       enabled: true
+  redis:
+    database: 0   
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+    timeout: 10000
+    cluster:
+      nodes:
+        - 118.190.97.96:7001
+        - 118.190.97.96:7002
+        - 118.190.97.96:7003
+        - 118.190.97.96:7004
+        - 118.190.97.96:7005
+        - 118.190.97.96:7000
