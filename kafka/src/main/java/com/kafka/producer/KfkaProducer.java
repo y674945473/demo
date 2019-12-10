@@ -1,7 +1,5 @@
 package com.kafka.producer;
 
-import java.util.UUID;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,17 +14,11 @@ public class KfkaProducer {
 	@Autowired
 	private KafkaTemplate<String, String> kafkaTemplate;
 	
-//	private Gson gson = new GsonBuilder().create();
-	
 	//发送消息方法
-    public void send() {
+    public void send(String code) {
     	for(int i=0;i<5;i++){
-//    		Message message = new Message();
-//            message.setId(System.currentTimeMillis());
-//            message.setMsg(UUID.randomUUID().toString()+ "---" +i);
-//            message.setSendTime(new Date());
-            logger.info("发送消息 ----->>>>>  message = {}", "111111");
-            kafkaTemplate.send("hello", "1111111111");
+            logger.info("发送消息 ----->>>>>  message = {}", i+"aaaaa");
+            kafkaTemplate.send(code, i+"aaaaa");
     	}
     }
 

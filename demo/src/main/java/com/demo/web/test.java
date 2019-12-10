@@ -1,6 +1,7 @@
 package com.demo.web;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Properties;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutionException;
@@ -80,33 +81,48 @@ public class test {
 //        service.shutdown();
 //    }
 
-	public static void main(String[] args) {
-		//创建topic
-        Properties props = new Properties();
-        props.put("bootstrap.servers", "你Kafka服务器ＩＰ:9092");
-        AdminClient adminClient = AdminClient.create(props);
-        ArrayList<NewTopic> topics = new ArrayList<NewTopic>();
-        NewTopic newTopic = new NewTopic("topic-test", 1, (short) 1);
-        topics.add(newTopic);
-        CreateTopicsResult result = adminClient.createTopics(topics);
-        try {
-            result.all().get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-	}
+//	public static void main(String[] args) {
+//		//创建topic
+//        Properties props = new Properties();
+//        props.put("bootstrap.servers", "你Kafka服务器ＩＰ:9092");
+//        AdminClient adminClient = AdminClient.create(props);
+//        ArrayList<NewTopic> topics = new ArrayList<NewTopic>();
+//        NewTopic newTopic = new NewTopic("topic-test", 1, (short) 1);
+//        topics.add(newTopic);
+//        CreateTopicsResult result = adminClient.createTopics(topics);
+//        try {
+//            result.all().get();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        }
+//	}
+//	
+//    public void add(int num) {
+//    	System.out.println("----:"+(num >> 3));
+//        c[num >> 3] |= (1 << (num & 0x07));
+//    }
+//
+//    public boolean check(int num) {
+//    	System.out.println(1 << (num & 0x07));
+//    	System.out.println("------1");
+//    	System.out.println(num & 0x07);
+//        return (c[num >> 3] & (1 << (num & 0x07))) != 0x00;
+//    }
 	
-    public void add(int num) {
-    	System.out.println("----:"+(num >> 3));
-        c[num >> 3] |= (1 << (num & 0x07));
-    }
-
-    public boolean check(int num) {
-    	System.out.println(1 << (num & 0x07));
-    	System.out.println("------1");
-    	System.out.println(num & 0x07);
-        return (c[num >> 3] & (1 << (num & 0x07))) != 0x00;
-    }
+	public static void main(String[] args) {
+		int[][] arr = new int[10][10];
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++) {				
+				arr[i][j] = j+i;
+			}
+		}
+		for (int[] is : arr) {
+			int indexOf = Arrays.toString(is).indexOf("5");
+			System.out.println(indexOf);
+			System.out.println(Arrays.toString(is));
+		}
+		
+	}
 }
